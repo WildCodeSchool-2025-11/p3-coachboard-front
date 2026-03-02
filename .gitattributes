@@ -1,0 +1,11 @@
+# Force le système de fin de ligne à LF (Linux/Mac) pour tous les fichiers texte
+# Cela permet d'éviter les conflits CRLF (Windows) vs LF sur Git et avec le Linter
+* text=auto eol=lf
+
+# Fichiers binaires (ne pas toucher aux fins de ligne)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg text

@@ -1,0 +1,35 @@
+# Validation des Conventional Commits
+# Format attendu : type(scope optionnel): description (min 10 caractères)
+# Exemple : feat(auth): ajout du système de connexion
+
+commit_msg=$(cat "$1")
+
+# Autoriser les merge commits automatiques
+if echo "$commit_msg" | grep -qE "^Merge "; then
+  exit 0
+fi
+
+# Regex : type obligatoire, scope optionnel, description min 10 chars
+if ! echo "$commit_msg" | grep -qE "^(feat|fix|docs|style|refactor|test|chore|perf|ci|build|revert)(\(.+\))?: .{10,}"; then
+  echo ""
+  echo "❌ Message de commit invalide !"
+  echo ""
+  echo "Format attendu : type(scope): description"
+  echo ""
+  echo "  Types autorisés : feat, fix, docs, style, refactor, test, chore, perf, ci, build, revert"
+  echo "  Le scope est optionnel : feat: ... ou feat(auth): ..."
+  echo "  La description doit faire au moins 10 caractères."
+  echo ""
+  echo "✅ Exemples valides :"
+  echo "  feat: ajout de la page de connexion"
+  echo "  fix(cart): correction du calcul du total"
+  echo "  docs: mise à jour du README avec les instructions"
+  echo "  refactor(api): extraction du service utilisateur"
+  echo ""
+  echo "❌ Exemples invalides :"
+  echo "  fix stuff           (pas de ':' après le type)"
+  echo "  update              (type non reconnu)"
+  echo "  feat: fix           (description trop courte, min 10 caractères)"
+  echo ""
+  exit 1
+fi
