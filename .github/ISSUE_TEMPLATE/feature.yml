@@ -1,0 +1,32 @@
+name: Nouvelle fonctionnalité
+description: Proposer une nouvelle fonctionnalité à développer
+labels: ["Fonctionnalité"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description de la fonctionnalité
+      description: Décrivez la fonctionnalité souhaitée
+    validations:
+      required: true
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: Pourquoi cette fonctionnalité est-elle nécessaire ?
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Solution proposée
+      description: Comment envisagez-vous l'implémentation ?
+    validations:
+      required: false
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives envisagées
+      description: Avez-vous considéré d'autres approches ?
+    validations:
+      required: false

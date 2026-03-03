@@ -1,0 +1,25 @@
+name: Amélioration
+description: Proposer une amélioration d'une fonctionnalité existante
+labels: ["Amélioration"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description de l'amélioration
+      description: Quelle fonctionnalité existante souhaitez-vous améliorer ?
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: Comportement actuel
+      description: Comment fonctionne la fonctionnalité actuellement ?
+    validations:
+      required: true
+  - type: textarea
+    id: proposed
+    attributes:
+      label: Amélioration proposée
+      description: Que proposez-vous comme changement ?
+    validations:
+      required: true
