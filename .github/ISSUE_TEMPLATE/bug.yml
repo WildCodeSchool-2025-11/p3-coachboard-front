@@ -1,0 +1,43 @@
+name: Rapport de bug
+description: Signaler un problème ou un comportement inattendu
+labels: ["Bug"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description du bug
+      description: Décrivez clairement le problème rencontré
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Étapes pour reproduire
+      description: Comment reproduire le bug ?
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportement attendu
+      description: Que devrait-il se passer ?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Comportement actuel
+      description: Que se passe-t-il à la place ?
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Captures d'écran
+      description: Si applicable, ajoutez des captures d'écran
+    validations:
+      required: false
