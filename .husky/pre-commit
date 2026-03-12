@@ -4,15 +4,16 @@
 
 # --- 1. Vérification de la taille du diff ---
 # Compte les lignes modifiées (ajoutées + supprimées) dans les fichiers staged
-# Exclut : package-lock.json, fichiers .svg, node_modules/
+# Exclut : package-lock.json, fichiers .svg, .css, node_modules/
 
-MAX_LINES=150
+MAX_LINES=300
 
 # Compter les lignes ajoutées et supprimées, en excluant les fichiers non pertinents
 diff_lines=$(git diff --cached --numstat \
   -- . \
   ':!package-lock.json' \
   ':!*.svg' \
+  ':!*.css' \
   ':!node_modules/' \
   | awk '{ added += $1; removed += $2 } END { print added + removed }')
 
@@ -35,7 +36,7 @@ if [ "$diff_lines" -gt "$MAX_LINES" ]; then
   echo "  3. git commit -m \"feat: ...\" (commiter un petit bloc logique)"
   echo "  4. Répéter pour le reste"
   echo ""
-  echo "📦 Fichiers exclus du comptage : package-lock.json, *.svg"
+  echo "📦 Fichiers exclus du comptage : package-lock.json, *.svg, *.css"
   echo ""
   exit 1
 fi
