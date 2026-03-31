@@ -5,6 +5,7 @@ import DashboardEleves from "./pages/DashboardEleves";
 import ExercicesPage from "./pages/ExercicesPage";
 import HomePage from "./pages/HomePage";
 import Login from "./pages/Login";
+import MonSuivi from "./pages/MonSuivi";
 import NouvelExercicePage from "./pages/NouvelExercicePage";
 
 function ProtectedRoute() {
@@ -22,6 +23,7 @@ function App() {
 				<Route path="/dashboard-eleves" element={<DashboardEleves />} />
 				<Route path="/exercices" element={<ExercicesPage />} />
 				<Route path="/exercices/nouveau" element={<NouvelExercicePage />} />
+				<Route path="/mon-suivi" element={<MonSuivi />} />
 			</Route>
 		</Routes>
 	);
